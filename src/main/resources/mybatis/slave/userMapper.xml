@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.admin.mapper.slave.UserMapper">
+
+    <resultMap type="com.cms.admin.domain.slave.User" id="UserResult">
+        <id property="currencyType" column="CURRENCY_TYPE"/>
+    </resultMap>
+
+    <select id="selectUserList" parameterType="com.cms.admin.domain.slave.User"
+            resultMap="UserResult">
+        select * from tb_activity
+    </select>
+
+    <update id="update" parameterType="com.cms.admin.domain.slave.User">
+        UPDATE user set user_name = #{userName} where user_id = #{userId}
+    </update>
+
+</mapper>
